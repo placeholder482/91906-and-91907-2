@@ -21,6 +21,7 @@ class chess_board_create_class:
         self.container = Frame(self.root)
         self.root.geometry("800x800")
         self.main_board_create_function()
+        chess_board_piece_place(main_chess_board_frame=self.container)
     #place holder function to check buttons are pressed
     def placeholder_button_press_function(self,button_var):
         print("button pressed ")
@@ -38,6 +39,7 @@ class chess_board_create_class:
         frame_main_board_function.columnconfigure((0,1,2,3,4,5,6,7),minsize=100,weight=1)
         loop_run_amount = 0
         grid_squares = [8,8]
+
         while grid_y_value < grid_squares[1]:
             grid_y_value += 1
             grid_x_value = 0
@@ -65,6 +67,17 @@ class chess_board_create_class:
 
 
         frame_main_board_function.grid()
+
+#creation of class that places and puts the pieces into a team 
+class chess_board_piece_place:
+
+    def __init__(self,main_chess_board_frame):
+        self.chess_piece_frame = (main_chess_board_frame)   
+        self.piece_type_list = ["pawn","knight","rook","bishop","queen","king"]
+
+
+    def main_piece_place_function(self):
+
 
 
 
