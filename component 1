@@ -1,0 +1,13 @@
+from tkinter import *
+
+root = Tk()
+
+frame = Frame(root)
+#defining frame and importing tkiter 
+#variables that contain the piece type and grid location of the piece with the key being the tkinter name of the widget that is assorated with the piece
+#dictionary that contains the location of each button as defined by grid location id [1,8] with the key of the dictionary being the widget name of the button 
+white_pieces_dict = {}
+black_pieces_dict = {}
+button_dict = {}
+#variable below is of the turn that the board is in with 0 in this case meaning white and 1 meaning black
+turn = 0
