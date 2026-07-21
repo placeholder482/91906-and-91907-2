@@ -1,0 +1,66 @@
+class chess_board_piece_place:
+
+    def __init__(self,main_chess_board_frame):
+        self.chess_piece_frame = (main_chess_board_frame)   
+        self.piece_type_list = ["rook","knight","bishop","king","queen","bishop","knight","rook"]
+        self.main_piece_place_function()
+
+        #function with placeholder is to be removed and replaced with actual function 
+    def placeholder_piece_press_function(self,piecetype):
+        print(f"piece type is {piecetype}")
+        
+        print(f"white pieces are {white_pieces_dict}")
+        print(f"black pieces are {black_pieces_dict}")
+
+    def main_piece_place_function(self):
+        global black_pieces_dict
+        global white_pieces_dict
+        frame = self.chess_piece_frame
+        piece_place_loop_count = 0
+        placing_white_or_black = 0
+        #0 = white 1 = black order does not matter
+        white_piece_y_position = 1
+        black_piece_y_position = 8
+        pawn_loop_count = 0 
+        if placing_white_or_black == 0:
+            
+            while piece_place_loop_count < len(self.piece_type_list):
+                
+                piece_grid_loaction = [piece_place_loop_count + 1,white_piece_y_position]
+                print("white piece placed")
+                piece_type = self.piece_type_list[piece_place_loop_count]
+                piece_place_var = Button(frame,text=self.piece_type_list[piece_place_loop_count],command=lambda piece_press_var = (piece_grid_loaction,piece_type):self.placeholder_piece_press_function(piecetype=piece_press_var),height=5,width=10)
+                piece_place_var.grid(row=white_piece_y_position,column=piece_place_loop_count + 1)
+                piece_place_loop_count += 1
+                white_pieces_dict[piece_place_var] = (piece_grid_loaction,piece_type)
+            while pawn_loop_count < 8:
+                    piece_grid_loaction = [pawn_loop_count + 1,white_piece_y_position +1 ]
+                    piece_place_var_pawn = Button(frame,text="pawn",command=lambda piece_press_var = (piece_grid_loaction,"pawn"):self.placeholder_piece_press_function(piecetype=piece_press_var),height=5,width=10)
+                    piece_place_var_pawn.grid(row=white_piece_y_position + 1,column=pawn_loop_count + 1)
+                    pawn_loop_count += 1
+                    white_pieces_dict[piece_place_var_pawn] = (piece_grid_loaction,"pawn")
+            if piece_place_loop_count == len(self.piece_type_list):
+                piece_place_loop_count = 0
+                pawn_loop_count = 0
+                while piece_place_loop_count < len(self.piece_type_list):
+                    piece_grid_loaction = [piece_place_loop_count + 1,black_piece_y_position]
+                    print("black piece placed")
+                    piece_type = self.piece_type_list[piece_place_loop_count]
+                    piece_place_var = Button(frame,text=self.piece_type_list[piece_place_loop_count],command=lambda piece_press_var = (piece_grid_loaction,piece_type):self.placeholder_piece_press_function(piecetype=piece_press_var),height=5,width=10)
+                    piece_place_var.grid(row=black_piece_y_position,column=piece_place_loop_count + 1)
+                    piece_place_loop_count += 1
+                    black_pieces_dict[piece_place_var] = (piece_grid_loaction,piece_type) 
+                while pawn_loop_count < 8:
+                    piece_grid_loaction = [pawn_loop_count + 1,black_piece_y_position -1]
+                    piece_place_var_pawn = Button(frame,text="pawn",command=lambda piece_press_var = (piece_grid_loaction,"pawn"):self.placeholder_piece_press_function(piecetype=piece_press_var),height=5,width=10)
+                    piece_place_var_pawn.grid(row=black_piece_y_position -1,column=pawn_loop_count + 1)
+                    pawn_loop_count += 1
+                    black_pieces_dict[piece_place_var_pawn] = (piece_grid_loaction,"pawn")
+
+
+
+
+
+app = chess_board_create_class(root)
+
+app.root.mainloop()
